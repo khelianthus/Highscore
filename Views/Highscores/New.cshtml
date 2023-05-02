@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Highscore.Models.Models.Game>
+
+<form method="post" >
+        <div class="col-sm-6">
+            <label for="game" class="form-label">Spel</label><br />
+            <select name="Game.Name" id="game">
+            <option value="">-- Välj Spel --</option>
+
+                @foreach (var game in Model)
+                {
+                    <option value="@game.Name">@game.Name</option>
+                }
+            </select>
+            </div>
+        <div class="col-sm-6">
+            <label for="userName" class="form-label">Spelare</label>
+            <input type="text" name="UserName" id="userName" class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="year" class="form-label">Datum</label>
+            <input type="date" name="Year" id="year" class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="highScore" class="form-label">Poäng</label>
+            <input type="number" name="HighScore" id="highScore" class="form-control">
+        </div>
+    </div>
+    <hr class="my-4">
+    <button class=" btn btn-dark btn-lg">
+        Registrera
+    </button>
+</form>

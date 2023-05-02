@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Highscore.Models.Models.Score>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Highscores</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Spel
+            </th>
+            <th>
+                Spelare
+            </th>
+            <th>
+                Datum
+            </th>
+            <th>
+                Poäng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Game.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @item.Year.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HighScore)
+                </td>
+                <td>
+
+                    <form id="delete-form" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+           </td>
+            </tr>
+        }
+    </tbody>
+</table>

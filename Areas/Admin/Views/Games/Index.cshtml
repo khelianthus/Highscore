@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Highscore.Models.Models.Game>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Spel</h1>
+
+
+<input type="button" value="Nytt spel" class="btn btn-sm btn-outline-secondary" onclick="location.href='@Url.Action("New", "Games")'" />
+
+<p>
+    <a asp-action="Create">Nytt spel</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                Namn
+            </th>
+            <th>
+                År
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                @*            <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.LaunchYear)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

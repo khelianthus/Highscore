@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Highscore.Models.ViewModels.Highscores>
+
+<div class="list-group mt-5">
+    @foreach (var listItem in Model)
+    {
+    <a href="/games/@listItem.GameLink" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between" style="justify-content: space-between;">
+            <p class="mb-1 fs-5" style="margin-left: auto;">@listItem.Highscore</p>
+        </div>
+        <small class="text-muted">@listItem.RecordHolder, @listItem.RecordDate.ToString("yyyy-MM-dd")</small>
+    </a>
+    }
+</div>
+
+@*    {
+    <a href="/games/@listItem.GameLink" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between justify-content-end">
+            @*               <h5 class="mb-1">@listItem.Game.Name</h5>
+                                <p class="mb-1 fs-5 justify-content-end">@listItem.Highscore</p>
+        </div>
+        <small class="text-muted">@listItem.RecordHolder, @listItem.RecordDate.ToString("yyyy-MM-dd")</small>
+    </a>
+    }*@
